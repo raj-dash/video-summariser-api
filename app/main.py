@@ -43,7 +43,7 @@ app.add_middleware(
 app.include_router(summary_router, tags=["Summary"])
 
 
-@app.get("/", tags=["Health Check"])
+@app.get("/health", tags=["Health Check"])
 async def root_health_check():
     """Basic health check endpoint at the base URL."""
     return {
