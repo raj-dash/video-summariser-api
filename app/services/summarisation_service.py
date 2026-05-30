@@ -1,6 +1,9 @@
 from app.services.download_service import DownloadService
 from app.services.llm_service import LlmService
 from app.services.transcribing_service import TranscribingService
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class SummarisationService:

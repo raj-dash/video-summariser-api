@@ -1,4 +1,7 @@
 from faster_whisper import WhisperModel
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class TranscribingService:
@@ -21,4 +24,4 @@ if __name__ == "__main__":
     obj = TranscribingService()
     file = "app/downloads/Even The Steam Deck Got Hit.mp3"
     transcript = obj.transcribe(file)
-    print(transcript)
+    logger.info(transcript)

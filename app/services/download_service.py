@@ -1,5 +1,8 @@
 import os
 import yt_dlp
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class DownloadService:
@@ -23,7 +26,7 @@ class DownloadService:
         }
 
         try:
-            print(f"Starting download for: {url}")
+            logger.info(f"Starting download for: {url}")
             with yt_dlp.YoutubeDL(ydl_opts) as ydl:
                 # 1. extract_info performs the full download and FFmpeg conversion
                 info_dict = ydl.extract_info(url, download=True)
@@ -50,11 +53,11 @@ class DownloadService:
                     f"Could not verify the downloaded file path on disk."
                 )
 
-            print(f"Download completed successfully! Saved to: {downloaded_path}")
+            logger.info(f"Download completed successfully! Saved to: {downloaded_path}")
             return str(downloaded_path)
 
         except Exception as e:
-            print(f"An error occurred during download: {e}")
+            logger.error(f"An error occurred during download: {e}")
             raise e
 
 

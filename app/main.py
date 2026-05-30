@@ -7,8 +7,11 @@ from app.services.llm_service import LlmService
 from app.services.transcribing_service import TranscribingService
 from app.services.summarisation_service import SummarisationService
 from app.routers.summary_router import summary_router
+from app.core.logger import setup_logging
+from app.core.middleware import LoggingMiddleware
 
 load_dotenv()
+setup_logging()
 
 
 @asynccontextmanager
@@ -28,6 +31,7 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
+app.add_middleware(LoggingMiddleware)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
