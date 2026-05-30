@@ -24,4 +24,4 @@ if __name__ == "__main__":
     obj = TranscribingService()
     file = "app/downloads/Even The Steam Deck Got Hit.mp3"
     transcript = obj.transcribe(file)
-    logger.info(transcript)
+    print(transcript)
