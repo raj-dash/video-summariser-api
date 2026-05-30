@@ -1,0 +1,65 @@
+# --- Python Artifacts ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# --- Virtual Environments ---
+.venv/
+venv/
+ENV/
+env/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# --- Environment Variables & Secrets ---
+.env
+.env.local
+.env.*.local
+.secret
+*.pem
+*.key
+
+# --- IDEs and Editors ---
+.vscode/
+.idea/
+*.swp
+*.swo
+.project
+.pydevproject
+
+# --- Testing and Coverage ---
+.target/
+.pytest_cache/
+.tox/
+.nox/
+.coverage
+.coverage.*
+htmlcov/
+.cache/
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+
+# --- OS Specific ---
+.DS_Store
+Thumbs.db

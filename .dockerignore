@@ -1,0 +1,36 @@
+# Ignore git metadata (Docker doesn't need version history)
+.git
+.gitignore
+
+# Ignore local virtual environments (Docker will install its own packages inside the container)
+venv/
+.venv/
+env/
+ENV/
+
+# Ignore Python cache files (speeds up build and keeps image clean)
+**/__pycache__
+*.py[cod]
+*.pyo
+*.pyd
+
+# Ignore local configuration and environment secrets
+.env
+.env.*
+*.local
+*.pem
+*.key
+
+# Ignore IDE settings
+.vscode/
+.idea/
+
+# Ignore test results and logs
+.pytest_cache/
+.coverage
+htmlcov/
+*.log
+
+# Ignore documentation build directories and OS junk
+docs/_build/
+.DS_Store
