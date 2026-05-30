@@ -3,3 +3,4 @@ uvicorn
 uvloop
 faster-whisper
 ffmpeg-python
+yt-dlp
