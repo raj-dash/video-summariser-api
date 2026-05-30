@@ -6,6 +6,7 @@ from app.services.download_service import DownloadService
 from app.services.llm_service import LlmService
 from app.services.transcribing_service import TranscribingService
 from app.services.summarisation_service import SummarisationService
+from app.routers.summary_router import summary_router
 
 load_dotenv()
 
@@ -15,7 +16,7 @@ async def lifespan(app: FastAPI):
     app.state.download_service = DownloadService()
     app.state.llm = LlmService()
     app.state.transcribing_service = TranscribingService()
-    app.summarisation_service = SummarisationService()
+    app.state.summarisation_service = SummarisationService()
 
     yield
 
@@ -34,6 +35,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.include_router(summary_router, tags=["Summary"])
 
 
 @app.get("/", tags=["Health Check"])

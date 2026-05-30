@@ -1,0 +1,31 @@
+services:
+  video-summariser:
+    image: video-summariser
+    container_name: video-summariser-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "7500:7500"
+    volumes:
+      - downloads:/app/downloads
+    environment:
+      - PYTHONDONTWRITEBYTECODE=1
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import urllib.request; urllib.request.urlopen('http://localhost:7500/health')",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+volumes:
+  downloads:
+    driver: local

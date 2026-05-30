@@ -1,14 +1,14 @@
 from app.services import download_service
 from fastapi import APIRouter, Request, HTTPException
 
-router = APIRouter()
+summary_router = APIRouter()
 
 
-@router.post("/summarise")
+@summary_router.post("/summarise")
 async def process_audio(url: str, request: Request):
     try:
         download_service = request.app.state.download_service
-        llm = request.state.llm
+        llm = request.app.state.llm
         transcribing_service = request.app.state.transcribing_service
         summarisation_service = request.app.state.summarisation_service
 
