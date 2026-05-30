@@ -27,6 +27,20 @@ services:
       timeout: 10s
       retries: 3
       start_period: 10s
+  frontend-webserver:
+      image: nginx:alpine
+      container_name: video-summariser-ui
+      ports:
+        - "7510:80"  # Exposes the frontend on port 7400 on your Debian server
+      volumes:
+        # Step up out of backend, go into frontend-app, mount the compiled dist
+        - /home/raj-dash/projects/video_summariser/dist:/usr/share/nginx/html:ro
+      restart: unless-stopped
+
+volumes:
+  downloads:
+    driver: local
+
 
 volumes:
   downloads:
