@@ -59,6 +59,7 @@ nosetests.xml
 coverage.xml
 *.cover
 *.log
+test/
 
 # --- OS Specific ---
 .DS_Store
