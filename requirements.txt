@@ -4,3 +4,5 @@ uvloop
 faster-whisper
 ffmpeg-python
 yt-dlp
+google-genai
+dotenv
