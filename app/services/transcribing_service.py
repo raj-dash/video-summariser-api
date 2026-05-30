@@ -19,6 +19,6 @@ class TranscribingService:
 
 if __name__ == "__main__":
     obj = TranscribingService()
-    file = ""
+    file = "app/downloads/Even The Steam Deck Got Hit.mp3"
     transcript = obj.transcribe(file)
     print(transcript)

@@ -60,6 +60,7 @@ coverage.xml
 *.cover
 *.log
 test/
+app/downloads/
 
 # --- OS Specific ---
 .DS_Store
