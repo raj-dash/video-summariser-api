@@ -28,20 +28,18 @@ app = FastAPI(
 )
 
 app.add_middleware(
-        CORSMiddleware,
-        allow_origins=["*"],
-        allow_credentials=True,
-        allow_methods=["*"],
-        allow_headers=["*"],
-    )
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 @app.get("/", tags=["Health Check"])
-    async def root_health_check():
-        """Basic health check endpoint at the base URL."""
-        return {
-            "status": "healthy",
-            "service": "audio-summarization-api",
-            "environment": os.getenv("ENV", "development")
-        }
-
-    return app
+async def root_health_check():
+    """Basic health check endpoint at the base URL."""
+    return {
+        "status": "healthy",
+        "service": "audio-summarization-api",
+    }
