@@ -22,4 +22,4 @@ RUN mkdir -p ${WORKDIR}/downloads
 
 EXPOSE 7500
 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "7500", "--loop", "uvloop"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "7500", "--loop", "uvloop", "--workers", "3"]
